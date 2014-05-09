@@ -7,8 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-default" role="navigation">
+	<div class="container">
+	  <div class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+		  <li><%= link_to 'students', students_path %></li>
+		  <li><%= link_to 'lessons', lessons_path %></li>
+		  <li><%= link_to 'courses', courses_path %></li>
+		</ul>
+	  </div>
+	</div>
+  </nav>
 
-<%= yield %>
-
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <%= yield %>
+      </div>
+      <div class="col-md-4">
+		<h2>Help</h2>
+        This column will hold helpful tips based upon your current context. Of course you will be able to remove it if you'd like.
+      </div>
+    </div>
+  </div>
 </body>
 </html>

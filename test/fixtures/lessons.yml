@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_id: 
+  date: 2014-05-07
+  start_time: 2014-05-07 14:45:18
+  end_time: 2014-05-07 14:45:18
+  room: 1
+
+two:
+  course_id: 
+  date: 2014-05-07
+  start_time: 2014-05-07 14:45:18
+  end_time: 2014-05-07 14:45:18
+  room: 1

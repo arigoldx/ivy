@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  attendance_type_id: 
+  lesson_id: 
+  student_id: 
+  course_id: 
+  date: 2014-05-05
+
+two:
+  attendance_type_id: 
+  lesson_id: 
+  student_id: 
+  course_id: 
+  date: 2014-05-05

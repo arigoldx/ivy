@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table">
+  <thead>
+	<td>first name</td>
+	<td>middle name</td>
+	<td>last name</td>
+	<td>nickname</td>
+	<td>gender</td>
+  </thead>
+  <tbody>
+	<tr>
+	  <td><%= @student.first_name %></td>
+	  <td><%= @student.middle_name %></td>
+	  <td><%= @student.last_name %></td>
+	  <td><%= @student.nickname %></td>
+	  <td><%= @student.gender %></td>
+	</tr>
+  </tbody>
+</table>
+
+<%= link_to 'edit', edit_student_path(@student) %> |
+<%= link_to 'back', students_path %>
