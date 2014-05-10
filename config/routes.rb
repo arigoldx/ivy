@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+
+  root :to => 'home#index'
+  get 'about' => 'home#about'
+
   resources :courses
-
-  root :to => "static#index"
-
   resources :lessons
   resources :students
 
