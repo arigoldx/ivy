@@ -15,5 +15,7 @@
   <%= @course.grade %>
 </p>
 
+  <%= link_to '[create lesson(s)]', new_lesson_url(:course_id => @course) %>
+
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

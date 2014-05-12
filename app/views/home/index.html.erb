@@ -1,7 +1,12 @@
-<h1>daily work</h1>
-<p>
-  (course 1)
-</p>
-<p>
-  (course 2)
-</p>
+<h1><%= @date.to_s(:day_month_date).downcase %></h1>
+
+<% if @total > 0 %>
+  <% for lesson in @lessons %>
+    <%= link_to lesson.course.name + lesson.course.section, lesson_path(lesson.course.id,lesson.id) %>
+<% if false %>
+    <%=h lesson.start_time.to_s(:hour_minute_ampm) %> to <%= lesson.end_time.to_s(:hour_minute_ampm) %><br />
+<% end %>
+  <% end %>
+<% else %>
+  nothing going on today
+<% end %>

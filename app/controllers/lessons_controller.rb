@@ -15,6 +15,9 @@ class LessonsController < ApplicationController
   # GET /lessons/new
   def new
     @lesson = Lesson.new
+    # if we're creating the lesson from a course, use that id
+    # QQQ
+    @course = Course.find(params[:course_id])
   end
 
   # GET /lessons/1/edit
