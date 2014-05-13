@@ -27,15 +27,31 @@ class LessonsController < ApplicationController
   # POST /lessons
   # POST /lessons.json
   def create
-    @lesson = Lesson.new(lesson_params)
+    if params[:lesson][:day_of_week]
+      @end_date = Date.parse(params[:lesson][:end_date])
+      @current_date = Date.parse(params[:lesson][:start_date])
+      while @current_date.cwday != params[:lesson][:day_of_week].to_i
+        @current_date += 1
+      end
+      while @current_date <= @end_date
+        @lesson = Lesson.new(lesson_params)
+        @lesson.date = @current_date
+        @current_date += 7
+        @lesson.save
+      end
+      flash[:notice] = 'your batch of lessons was successfully created'
+      redirect_to course_url(params[:lesson][:course_id])
+    else
+      @lesson = Lesson.new(lesson_params)
 
-    respond_to do |format|
-      if @lesson.save
-        format.html { redirect_to @lesson, notice: 'Lesson was successfully created.' }
-        format.json { render :show, status: :created, location: @lesson }
-      else
-        format.html { render :new }
-        format.json { render json: @lesson.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @lesson.save
+          format.html { redirect_to @lesson, notice: 'Lesson was successfully created.' }
+          format.json { render :show, status: :created, location: @lesson }
+        else
+          format.html { render :new }
+          format.json { render json: @lesson.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

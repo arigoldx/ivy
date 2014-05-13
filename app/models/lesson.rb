@@ -1,4 +1,6 @@
 class Lesson < ActiveRecord::Base
+  attr_accessor :day_of_week
+
   belongs_to :course
   
   has_many :activity_logs

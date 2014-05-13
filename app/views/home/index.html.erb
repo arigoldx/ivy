@@ -2,7 +2,7 @@
 
 <% if @total > 0 %>
   <% for lesson in @lessons %>
-    <%= link_to lesson.course.name + lesson.course.section, lesson_path(lesson.course.id,lesson.id) %>
+    <%= link_to lesson.course.name + lesson.course.section, lesson_path(lesson.id) %><br />
 <% if false %>
     <%=h lesson.start_time.to_s(:hour_minute_ampm) %> to <%= lesson.end_time.to_s(:hour_minute_ampm) %><br />
 <% end %>
