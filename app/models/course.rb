@@ -11,7 +11,7 @@ class Course < ActiveRecord::Base
 #    has_many :student_assignments, :class_name => "AssignmentLog", :foreign_key => "course_id", :conditions => "student_id is not null", :dependent => :destroy
 
     def full_name
-        self.name + self.section
+        self.name + ' ' + self.section
     end
 
 end

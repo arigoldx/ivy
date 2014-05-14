@@ -1,4 +1,4 @@
-<%= form_for(@course) do |f| %>
+<%= bootstrap_form_for(@course, layout: :horizontal) do |f| %>
   <% if @course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
@@ -10,20 +10,8 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :section %><br>
     <%= f.text_field :section %>
-  </div>
-  <div class="field">
-    <%= f.label :grade %><br>
     <%= f.number_field :grade %>
-  </div>
-  <div class="actions">
     <%= f.submit %>
-  </div>
 <% end %>

@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
-  root :to => 'home#index'
-  get 'about' => 'home#about'
 
+  root :to => 'home#about'
+  get 'index' => 'home#index'
+
+  resources :attendances
+  resources :attendance_types
   resources :courses
   resources :lessons
   resources :students

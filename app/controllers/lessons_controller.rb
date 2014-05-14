@@ -10,6 +10,13 @@ class LessonsController < ApplicationController
   # GET /lessons/1
   # GET /lessons/1.json
   def show
+    @attendance_types = AttendanceType.all
+    @attendance = Attendance.new
+    @me = Lesson.find(params[:id])
+    @course = @me.course
+    @lesson_array = @course.lessons.order("date")
+    puts "me: #{@me}"
+    @lessons = @me.course.lessons.where(:order => "date", :conditions => "date >= Date(now())")
   end
 
   # GET /lessons/new
@@ -46,7 +53,7 @@ class LessonsController < ApplicationController
 
       respond_to do |format|
         if @lesson.save
-          format.html { redirect_to @lesson, notice: 'Lesson was successfully created.' }
+          format.html { redirect_to lessons_path, notice: 'lesson was successfully created.' }
           format.json { render :show, status: :created, location: @lesson }
         else
           format.html { render :new }
@@ -61,7 +68,7 @@ class LessonsController < ApplicationController
   def update
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to @lesson, notice: 'Lesson was successfully updated.' }
+        format.html { redirect_to @lesson, notice: 'lesson was successfully updated.' }
         format.json { render :show, status: :ok, location: @lesson }
       else
         format.html { render :edit }
@@ -75,7 +82,7 @@ class LessonsController < ApplicationController
   def destroy
     @lesson.destroy
     respond_to do |format|
-      format.html { redirect_to lessons_url, notice: 'Lesson was successfully destroyed.' }
+      format.html { redirect_to lessons_url, notice: 'lesson was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

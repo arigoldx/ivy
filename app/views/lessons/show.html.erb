@@ -1,29 +1,41 @@
-<p id="notice"><%= notice %></p>
+<% title(@course.full_name + ", " + @lesson.date.to_s(:day_month_date).downcase) %>
 
-<p>
-  <strong>Course:</strong>
-  <%= @lesson.course.full_name %>
-</p>
+<h2>
+  <div id="heading-date"><%= @lesson.date.to_s(:day_month_date).downcase %></div>
+  <%= link_to @course.full_name, course_path(@course) %><br />
+  <%= "{" + (@lesson_array.index(@lesson) + 1).ordinalize.to_s + " of " + @lesson_array.length.to_s + "}" %><br />
+  <%= @lesson.start_time.strftime("%l:%M") %> to <%= @lesson.end_time.strftime("%l:%M") %><br />
+  <%= link_to 'previous', lesson_path(@course,@lesson.previous) if @lesson.previous %>
+<% if false %>
+  <%= link_to 'next', lesson_path(@course,@lesson.next) if @lesson.next %>
+<% end %>
+</h2>
 
-<p>
-  <strong>Date:</strong>
-  <%= @lesson.date %>
-</p>
+<!-- taking attendance -->
+<br /><br />
+<% if false %>
+<b><%= link_to_function "take attendance", "Element.toggle('take_attendance')" %></b>
+<% end %>
+<div id="take_attendance">
+  <% bootstrap_form_for @attendance, layout: :horizontal, :url => attendances_path do |f| %>
+    <%= f.hidden_field :course_id, :value => @course.id %>
+	<%= f.hidden_field :lesson_id, :value => @lesson.id %>
+	<%= f.collection_select :attendance_type_id, @attendance_types, :id, :name %>
+    <%= f.select :student, options_from_collection_for_select(Student.all, 'id', 'name_first_last'), :multiple => "true", :id => "student_ids" %>
+	<%= f.submit "mark attendance" %>
+<% end %>
+</div><br />
 
-<p>
-  <strong>Start time:</strong>
-  <%= @lesson.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @lesson.end_time %>
-</p>
-
-<p>
-  <strong>Room:</strong>
-  <%= @lesson.room %>
-</p>
-
-<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
-<%= link_to 'Back', lessons_path %>
+<!-- attendances listing -->
+<% if !@lesson.attendances.empty? %>
+<b><%= link_to_function "attendance listing", "Element.toggle('attendance_listing')" %></b><br />
+<div id="attendance_listing" style="display:none">
+  <% for attendance in @lesson.attendances.find(:all, :order => "date DESC") %>
+  <%= link_to 'edit', edit_attendance_path(attendance) %>
+  <%= link_to 'delete', attendance_path(attendance), :confirm => 'Are you sure?', :method => :delete %> | 
+  <%=h Student.find(attendance.student_id).name_first_last %>
+  <%= AttendanceType.find(attendance.attendance_type_id).name %> on
+  <%=h attendance.created_at.to_s(:day_month_date).downcase %><br />
+  <% end %>
+<br /></div>
+<% end %>

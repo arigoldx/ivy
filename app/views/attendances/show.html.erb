@@ -1,0 +1,27 @@
+<p>
+  <strong>Attendance type:</strong>
+  <%= @attendance.attendance_type %>
+</p>
+
+<p>
+  <strong>Lesson:</strong>
+  <%= @attendance.lesson %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @attendance.student %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @attendance.course %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @attendance.date %>
+</p>
+
+<%= link_to 'Edit', edit_attendance_path(@attendance) %> |
+<%= link_to 'Back', attendances_path %>

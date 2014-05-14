@@ -10,6 +10,11 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @attendances = Attendance.find_by_sql(["SELECT s.first_name, s.last_name, attendance_type_id, count(*) as count" + 
+                                           "FROM attendances INNER JOIN students as s on student_id = s.id" +
+                                           "WHERE course_id = '#{@course.id}'" +
+                                           "GROUP BY student_id, attendance_type_id"])
+
   end
 
   # GET /courses/new
@@ -28,7 +33,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.html { redirect_to @course, notice: 'course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
@@ -42,7 +47,7 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        format.html { redirect_to @course, notice: 'course was successfully updated.' }
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render :edit }
@@ -56,7 +61,7 @@ class CoursesController < ApplicationController
   def destroy
     @course.destroy
     respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
+      format.html { redirect_to courses_url, notice: 'course was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

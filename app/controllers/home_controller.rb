@@ -6,7 +6,7 @@ class HomeController < ApplicationController
       @date = Date.today
     end
 
-    @lessons = Lesson.todays(@date)
+    @lessons = Lesson.where("date = ?", @date)
     @total = @lessons.size
 
   end
