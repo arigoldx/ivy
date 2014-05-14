@@ -9,9 +9,6 @@ class Lesson < ActiveRecord::Base
   has_many :attendances, :dependent => :destroy
 
   def previous
-    lessons = course.lessons.order('date')
-    index = lessons.index(self)
-
     if (index == 0)
       return nil
     else
@@ -20,14 +17,22 @@ class Lesson < ActiveRecord::Base
   end
   
   def next
-    lessons = course.lessons.order('date')
-    index = lessons.index(self)
-    
     if (index + 1) == lessons.length
       return nil
     else
       lessons.at(index + 1)
     end
   end
+  
+  private
+
+  def lessons
+    course.lessons.order('date')
+  end
+  
+  def index
+    lessons.index(self)
+  end
+  
 
 end

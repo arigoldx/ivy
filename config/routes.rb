@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root :to => 'home#about'
   get 'index' => 'home#index'
 
+  resources :enrollments
   resources :attendances
   resources :attendance_types
   resources :courses

@@ -14,6 +14,10 @@ how much time i can do.
 
 * goals
 
+** enrollments
+** get lesson page up, ie. copy lessons/show.rhtml
+** track activities
+
 ** FEATURE link_to_sorter replacement
 
 http://stackoverflow.com/questions/19968638/refactoring-ruby-on-rails-link-to-with-sorting
@@ -263,5 +267,12 @@ stop working on ivy. i'm gonna try that
 
 * simple listing
 S 1:10
-
+E 1:46
+S 3:10
+E 3:38
+S 3:47
+E 4:10
+(+ (- 46 10) (- 38 10) (- 70 47) (- )
+S 4:18
+E 
 

@@ -1,6 +1,6 @@
 <h1><%= @course.full_name %></h1>
 
-<%= link_to 'Back', courses_path %>
+<%= link_to 'back', courses_path %><br />
 <%= link_to '[edit details]', edit_course_path(@course) %><br />
 <%= link_to '[create lesson(s)]', new_lesson_url(:course_id => @course) %><br />
 
@@ -24,21 +24,10 @@
 </div>
 
 <br />
-<h2>assignments</h2>
-<div id="assignments">
-  <%= link_to '[generate assignment(s) for course]', new_assignment_log_url(:course_id => @course) %>
-  <% if !@course.assignments.empty? %>
-  <div id="table">
-    <%= render :partial => "assignment_list" %>
-  </div>
-  <% end %>
-</div>
-
-<br />
 <h2>lessons</h2>
 <div id="lessons">
   <%= link_to '[create lesson(s)]', new_lesson_url(@course) %>
-  <p><% for lesson in @lessons %>
+  <p><% for lesson in @course.lessons %>
     <% if lesson.date == Date.today %>
       <div class="bold">
     <% else %>
@@ -57,31 +46,6 @@
   <% end %>
 </div>
 
-<br />
-<h2>plan</h2>
-<div id="plan">
-<% form_for :courseplan, :url => courseplans_path(@course) do |f| %>
-  <%= f.hidden_field :course_id, :value => @course.id %>
-  for lesson of,
-  <%= f.collection_select :lesson_id, @course.future_lessons, :id, :date  %><br />
-  <%= f.text_area :text, :rows => 18, :cols => 60 %>
-  <%= submit_tag "create courseplan" %>
-<% end %>
-</div>
-
-<% if !@course.courseplans.empty? %>
-<br />
-<h2>plans</h2>
-<div id="plans" style="display:none">
-<br />
-<% for courseplan in @course.courseplans.order("date DESC") %>
-  <%= link_to 'edit', edit_courseplan_path(@course,courseplan) %> |
-  <%= link_to 'delete', courseplan_path(@course,courseplan), :confirm => 'are you sure?', :method => :delete %> |
-  <%=h courseplan.date.to_s(:day_month_date).downcase %><br />
-  <%= courseplan.text %><br />
-<% end %>
-</div>
-<% end %>
 
 <br />
 <h2>enrollment</h2>
@@ -93,15 +57,12 @@
   <% end %>
 </p>
 
- <% if !Student.list_sans_enrolled(@course).empty? %>
-  <% form_for :enrollment,
-            :url => enrollments_path(@course) do |form| %>
-    <%= form.hidden_field :course_id, :value => @course.id %>
-    <%= form.select(:student_id, Student.list_sans_enrolled(@course)) %>
-    <%= submit_tag "enroll student" %>
+<div class="enrollment">
+  <%= bootstrap_form_tag layout: :horizontal, url: enrollments_path  do |f| %>
+    <%= f.hidden_field :course_id, :value => @course.id %>
+    <%= f.select(:student, options_from_collection_for_select(Student.all, 'id', 'name_first_last'), :multiple => "true", :id => "student_ids") %>
+    <%= f.submit "enroll student" %>
   <% end %>
- <% else %>
-  <hr />
-  there are no students to enroll - all potential students have been enrolled, or new student records might need to be created
- <% end %>
+</div>
+
 </div>
