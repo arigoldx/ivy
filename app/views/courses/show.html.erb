@@ -2,7 +2,6 @@
 
 <%= link_to 'back', courses_path %><br />
 <%= link_to '[edit details]', edit_course_path(@course) %><br />
-<%= link_to '[create lesson(s)]', new_lesson_url(:course_id => @course) %><br />
 
 <% if !@course.activity_logs.empty? %>
 <br />
@@ -26,7 +25,7 @@
 <br />
 <h2>lessons</h2>
 <div id="lessons">
-  <%= link_to '[create lesson(s)]', new_lesson_url(@course) %>
+  <%= link_to '[create lesson(s)]', new_lesson_url(:course_id => @course) %>
   <p><% for lesson in @course.lessons %>
     <% if lesson.date == Date.today %>
       <div class="bold">
@@ -52,17 +51,21 @@
 <div id="enrollment">
 <p>
   <% for enrollment in @course.enrollments %>
-     <%= link_to 'remove student', enrollment_path(@course,enrollment), :confirm => 'are you sure?', :method => :delete %> |
+     <%= link_to '[remove student]', enrollment_path(@course,enrollment), :confirm => 'are you sure?', :method => :delete %> |
      <%=h enrollment.student.name_last_c_first %><br />
   <% end %>
 </p>
 
-<div class="enrollment">
+ <% if !Student.list_sans_enrolled(@course).empty? %>
+ <h3>enroll a student</h3>
   <%= bootstrap_form_tag layout: :horizontal, url: enrollments_path  do |f| %>
     <%= f.hidden_field :course_id, :value => @course.id %>
-    <%= f.select(:student, options_from_collection_for_select(Student.all, 'id', 'name_first_last'), :multiple => "true", :id => "student_ids") %>
+    <%= f.select(:student_id, Student.list_sans_enrolled(@course), :multiple => "true", :id => "student_ids") %>
     <%= f.submit "enroll student" %>
   <% end %>
-</div>
+  <% else %>
+    <hr />
+    there are no students to enroll - all potential students have been enrolled, or new student records might need to be created
+  <% end %>
 
 </div>

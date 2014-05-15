@@ -14,6 +14,7 @@ how much time i can do.
 
 * goals
 
+** call unemployment and ask if i have to send out resumes or if i can get a porfolio going
 ** enrollments
 ** get lesson page up, ie. copy lessons/show.rhtml
 ** track activities
@@ -226,7 +227,7 @@ see yakov one of these days.
 ** track activities
 
 
-*     WEDNESDAY
+*     WEDNESDAY about 6 hours
 * 25 START Wed May 14 09:59:45 PDT 2014
 
 ** enrollments
@@ -272,7 +273,9 @@ S 3:10
 E 3:38
 S 3:47
 E 4:10
-(+ (- 46 10) (- 38 10) (- 70 47) (- )
 S 4:18
-E 
-
+E 5:00
+S 4:45
+E 6:00
+(% (+ (- 46 10) (- 38 10) (- 70 47) (- 60 18) 60 15 149) 60)
+*     THURSDAY 
