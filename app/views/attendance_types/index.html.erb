@@ -1,25 +1,17 @@
 <h1>attendance types</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= link_to '[new attendance type]', new_attendance_type_path %><br>
+<br>
 
+<table class="table">
   <tbody>
     <% @attendance_types.each do |attendance_type| %>
       <tr>
         <td><%= attendance_type.name %></td>
-        <td><%= link_to 'Show', attendance_type %></td>
-        <td><%= link_to 'Edit', edit_attendance_type_path(attendance_type) %></td>
-        <td><%= link_to 'Destroy', attendance_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '[show]', attendance_type %></td>
+        <td><%= link_to '[edit]', edit_attendance_type_path(attendance_type) %></td>
+        <td><%= link_to '[delete]', attendance_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'new attendance type', new_attendance_type_path %>
