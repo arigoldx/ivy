@@ -12,8 +12,6 @@ then we're all, with ema, going to go to noisette. i haven't a clue
 how much time i can do.
 
 * goals
-** FEATURE context sensitive help
-when a specific type of route is hit* we need to update the help <div>
 ** FEATURE don't reload the whole <body>
 the nav bar shouldn't get updated on every page refresh
 https://github.com/defunkt/jquery-pjax
@@ -21,6 +19,9 @@ and maybe this too,
 https://github.com/rails/turbolinks/
 
 ** MACRO get lesson page up, ie. copy lessons/show.rhtml
+** FEATURE context sensitive help
+when a specific type of route is hit* we need to update the help <div>
+
 ** FEATURE make table headers sortable
 especially for lessons#index. boy wouldn't it be nice if you could
 view your pool of lessons in different ways?
