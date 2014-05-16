@@ -1,6 +1,5 @@
 class Student < ActiveRecord::Base
   has_many :activity_logs, :dependent => :destroy
-  has_many :assignment_logs, :dependent => :destroy
   has_many :activities, :through => :activity_logs
   has_many :attendances, :dependent => :destroy
   has_many :enrollments, :dependent => :destroy
