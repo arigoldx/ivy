@@ -3,21 +3,13 @@ class EnrollmentsController < ApplicationController
   # POST /enrollments
   # POST /enrollments.xml
   def create
-    puts "******params"
-    puts params
-    puts "******BEFORE"
-
     @enrollment = Enrollment.new
     @enrollment.student_id = params[:student_id]
     @enrollment.course_id = params[:course_id]
 
-    puts "******enrollment"
-    puts @enrollment
-    puts "******AFTER"
-
     respond_to do |format|
       if @enrollment.save
-        flash[:notice] = @enrollment.student.name_first_last + ' enrolled'
+        flash[:notice] = 'enrolled ' + @enrollment.student.name_first_last
         format.html { redirect_to course_url(@enrollment.course_id) }
         format.xml  { head :created, :location => enrollment_url(@enrollment) }
       else
@@ -36,7 +28,7 @@ class EnrollmentsController < ApplicationController
     @enrollment.destroy
 
     respond_to do |format|
-      flash[:notice] = student.name_first_last + ' unenrolled'
+      flash[:notice] = 'disenrolled ' + student.name_first_last
       format.html { redirect_to course_url(course_id) }
       format.xml  { head :ok }
     end

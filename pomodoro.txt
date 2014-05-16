@@ -1,5 +1,4 @@
 * meta
-
 i'm kinda using the pomodoro technique here.
 
 i'm not just doing 25 minutes though, i'm going to try different
@@ -13,20 +12,22 @@ then we're all, with ema, going to go to noisette. i haven't a clue
 how much time i can do.
 
 * goals
+** FEATURE context sensitive help
+when a specific type of route is hit* we need to update the help <div>
+** FEATURE don't reload the whole <body>
+the nav bar shouldn't get updated on every page refresh
+https://github.com/defunkt/jquery-pjax
+and maybe this too,
+https://github.com/rails/turbolinks/
 
-** call unemployment and ask if i have to send out resumes or if i can get a porfolio going
-** enrollments
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-
+** MACRO get lesson page up, ie. copy lessons/show.rhtml
+** FEATURE make table headers sortable
+especially for lessons#index. boy wouldn't it be nice if you could
+view your pool of lessons in different ways?
+** MACRO track activities
 ** FEATURE link_to_sorter replacement
 
 http://stackoverflow.com/questions/19968638/refactoring-ruby-on-rails-link-to-with-sorting
-
-** BUG home tab changes url from /index to /*/index
-
-only when showing a model. that is, showing a student will cause the
-bug but indexing students won't. same goes for courses.
 
 ** where appropriate create should redirect to index, not show
 
@@ -45,30 +46,42 @@ crazy.
 http://alexwolfe.github.io/Buttons/
 
 
-*     MONDAY: 7, TOTAL TIME: 183 minutes or 3 hours and 3 minutes
-* 20 START Mon May 12 11:29:11 PDT 2014 END Mon May 12 11:49:11 PDT 2014
+** MACRO use rails variants, new in 4.1!
+http://edgeguides.rubyonrails.org/4_1_release_notes.html#action-pack-variants
+* DONE
+** FEATURE enrollments
+TEST the create and destroy actions
 
-first attempt. gonna work for 20 minutes and then take a 3 - 5 minute break.
+** BUG nav buttons change url from /action to /<model>/action
+TEST each nav link
 
-** DONE start using time management
+this only happens when show-ing a model. that is, showing a student
+will cause the bug but indexing students won't.
+
+** BUG the home page isn't getting today's lessons
+
+   Lesson.todays is wrong
+
+   use the console to figure it out
+** new should redirect to index, not show
+** redo pomodoros to calculate time and summarize days
+** figure out why flash isn't working when making new attendances
+** clean up attendance* views & make some data
+** generate attendance & attendance types models
+** start using time management
 ** make the forms prettier
 ** figure out why :time isn't going into new lessons
-
-** notes
+* time tracking
+**     MONDAY: 7, TOTAL TIME: 183 minutes or 3 hours and 3 minutes
+*** 20 START Mon May 12 11:29:11 PDT 2014 END Mon May 12 11:49:11 PDT 2014
+first attempt. gonna work for 20 minutes and then take a 3 - 5 minute break.
 
 went ok for the first time. i'm liking it.
 
-* 20 START Mon May 12 12:06:06 PDT 2014 END Mon May 12 12:26:06 PDT 2014
-
+*** 20 START Mon May 12 12:06:06 PDT 2014 END Mon May 12 12:26:06 PDT 2014
 this is inverted. i've got a stopwatch going and i'm going to see how
 much work i can do before i get interrupted and we have to leave for
 noisette.
-
-** make the forms prettier
-** figure out why :time isn't going into new lessons
-** ALMOST don't be distracted
-
-** notes
 
 after 10 minutes anni finished feeding mira. we'll see how long i can
 work with mira in the jumper.
@@ -79,73 +92,36 @@ so i did about 20 minutes. i could have gone longer but i'm trying to
 stick to 20.
 
 
-* 25 START Mon May 12 14:31:59 PDT 2014 END Mon May 12 14:56:59 PDT 2014
-
+*** 25 START Mon May 12 14:31:59 PDT 2014 END Mon May 12 14:56:59 PDT 2014
 i'm doing a 25 now. maybe a 30 at one point? i wonder what that number
 should be. maybe it depends..
 
-** don't be distracted
-** make the forms prettier
-** figure out why :time isn't going into new lessons
-
-** notes
-
 i restarted because may came home a few minutes into it.
 
-* 25 START Mon May 12 15:10:32 PDT 2014 END Mon May 12 15:35:32 PDT 2014
-
-** don't be distracted
-** make the forms prettier
-** figure out why :time isn't going into new lessons
-
-* 29 START Mon May 12 15:50:18 PDT 2014 END Mon May 12 16:19:15 PDT 2014
-
-** don't be distracted
-** DONE make the forms prettier
-** DONE figure out why :time isn't going into new lessons
-
-** notes
-
+*** 25 START Mon May 12 15:10:32 PDT 2014 END Mon May 12 15:35:32 PDT 2014
+*** 29 START Mon May 12 15:50:18 PDT 2014 END Mon May 12 16:19:15 PDT 2014
 i was in the middle of something and wanted to finish it up. hmm.
 
-* 25 START Mon May 12 16:28:32 PDT 2014 END Mon May 12 16:53:32 PDT 2014
-
-** create batches of lessons
-
-** notes
+*** 25 START Mon May 12 16:28:32 PDT 2014 END Mon May 12 16:53:32 PDT 2014
 
 so far so good!
 
-* 39 START Mon May 12 20:40:47 PDT 2014 END Mon May 12 21:19:49 PDT 2014
+*** 39 START Mon May 12 20:40:47 PDT 2014 END Mon May 12 21:19:49 PDT 2014
 
 this is evening working with ema here and anni in and out. i'm just
 curious to see how much work i can get done.
 
-** DONE create batches of lessons
-
-*     TUESDAY: 11, TOTAL TIME: 257 minutes or 4 hours and 17 minutes
-* 21 START Tue May 13 10:00:21 PDT 2014 END Tue May 13 10:21:21 PDT 2014
-
+**     TUESDAY: 11, TOTAL TIME: 257 minutes or 4 hours and 17 minutes
+*** 21 START Tue May 13 10:00:21 PDT 2014 END Tue May 13 10:21:21 PDT 2014
 second day. 
-
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-
-** notes
 
 got interrupted with about 4 minutes left 'cause ema's in the airport
 getting jacked by united.
 
-* 18 START Tue May 13 10:30:43 PDT 2014 END Tue May 13 10:48:47 PDT 2014
-
+*** 18 START Tue May 13 10:30:43 PDT 2014 END Tue May 13 10:48:47 PDT 2014
 free form for now 'cause ema's in the airport getting jacked by
 united. also, anni'll be home in maaaaybe 30. maybe 40. maybe 20. ah,
 time.
-
-** generate attendance & attendance types models
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-** notes
 
 ok, she somehow got on a better flight. well done. no screaming either
 she said. if i understand the story correctly, the woman who told her
@@ -156,92 +132,30 @@ heck, she's on that flight.
 
 stopped 'cause anni got back
 
-* 25 START Tue May 13 11:47:44 PDT 2014 END Tue May 13 12:12:44 PDT 2014
-
+*** 25 START Tue May 13 11:47:44 PDT 2014 END Tue May 13 12:12:44 PDT 2014
 back downstairs. i'm wondering if i just shouldn't work it here 'cause
 heck, it's gonna be hot. and then there's less transfer time.
 
-** DONE generate attendance & attendance types models
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-** notes
-
 lunchtime!
 
-* 25 START Tue May 13 13:31:24 PDT 2014 END Tue May 13 13:56:24 PDT 2014
-
+*** 25 START Tue May 13 13:31:24 PDT 2014 END Tue May 13 13:56:24 PDT 2014
 it's quite amazing how easily i get delayed. aba called and we had
 another conversation about remote work and other things. then he
 called again. and i also had some stomach issues - kinda shows ya how
 important good health is. it literally takes pomodoros away. i should
 see yakov one of these days.
 
-** DONE clean up attendance* views & make some data
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-
-* 25 START Tue May 13 15:37:43 PDT 2014 END Tue May 13 16:02:43 PDT 2014
-
-** figure out why flash isn't working when making new attendances
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-** also, DONE redo pomodoros to calculate time and summarize days
-
-* 25 START Tue May 13 16:09:10 PDT 2014
-
-** new should redirect to index, not show
-** DONE figure out why flash isn't working when making new attendances
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-
-* 25 START Tue May 13 16:37:54 PDT 2014
-
-** BUG the home page is wrong
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-
-* 25 START Tue May 13 17:25:05 PDT 2014
-
-** DONE BUG the home page isn't getting today's lessons
-
-   Lesson.todays is wrong
-
-   use the console to figure it out
-
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-
-* 25 START Tue May 13 17:54:20 PDT 2014
-
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-
-* 18 START Tue May 13 20:30:59 PDT 2014
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-
-* 25 START Tue May 13 22:29:02 PDT 2014
-
-** enrollments
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-
-
-*     WEDNESDAY about 6 hours
-* 25 START Wed May 14 09:59:45 PDT 2014
-
-** enrollments
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-
-* 25 START Wed May 14 10:31:19 PDT 2014
-
-** enrollments
-** get lesson page up, ie. copy lessons/show.rhtml
-** track activities
-
-* 25 START Wed May 14 11:21:01 PDT 2014
-
+*** 25 START Tue May 13 15:37:43 PDT 2014 END Tue May 13 16:02:43 PDT 2014
+*** 25 START Tue May 13 16:09:10 PDT 2014
+*** 25 START Tue May 13 16:37:54 PDT 2014
+*** 25 START Tue May 13 17:25:05 PDT 2014
+*** 25 START Tue May 13 17:54:20 PDT 2014
+*** 18 START Tue May 13 20:30:59 PDT 2014
+*** 25 START Tue May 13 22:29:02 PDT 2014
+**     WEDNESDAY about 6 hours
+*** 25 START Wed May 14 09:59:45 PDT 2014
+*** 25 START Wed May 14 10:31:19 PDT 2014
+*** 25 START Wed May 14 11:21:01 PDT 2014
 i wonder about this pomodoro stuff. always 25 minutes? what if i'm in
 the middle of something awesome and could do 3 more minutes? or what
 if those 3 minutes turn into 15 more minutes?
@@ -254,19 +168,17 @@ and i also think that it's important to have a good sense of both the
 macro level of whatever the work is as well as the micro. the mind can
 get lost along an unproductive track.
 
-* 25 START Wed May 14 12:00:14 PDT 2014
-
+*** 25 START Wed May 14 12:00:14 PDT 2014
 i'm having trouble doing the 25 minutes straight. i got hungry a few
 times. i suppose this would (will) be easier eating on a schedule.
 
 hmm.
 
-* 25 START Wed May 14 12:10:14 PDT 2014
-
+*** 25 START Wed May 14 12:10:14 PDT 2014
 oof. at this point i really need to just put the time down i start and
 stop working on ivy. i'm gonna try that
 
-* simple listing
+*** simple listing
 S 1:10
 E 1:46
 S 3:10
@@ -278,6 +190,11 @@ E 5:00
 S 4:45
 E 6:00
 (% (+ (- 46 10) (- 38 10) (- 70 47) (- 60 18) 60 15 149) 60)
-*     THURSDAY 
-* listing
-** START 11:40
+**     THURSDAY (+ 25 20 5 
+*** 25 START 11:40
+*** 20 START 12:25 
+***  5 START 2:30
+mira in the jumper, anni out with Jill
+*** 30 START 4:40
+*** 25 START 5:16
+*** START 5:46

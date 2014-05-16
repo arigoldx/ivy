@@ -1,5 +1,4 @@
 <h1>lessons</h1>
-
 <table class="table">
   <thead>
     <tr>
@@ -17,16 +16,16 @@
   </thead>
 
   <tbody>
-    <% @lessons.each do |lesson| %>
+    <% @lessons.each do |l| %>
       <tr>
-        <td><%= lesson.course.full_name %></td>
-        <td><%= lesson.date %></td>
-        <td><%= lesson.start_time %></td>
-        <td><%= lesson.end_time %></td>
-        <td><%= lesson.room %></td>
-        <td><%= link_to 'Show', lesson %></td>
-        <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
-        <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to l.course.full_name, course_path(l.course) %></td>
+        <td><%= l.date %></td>
+        <td><%= l.start_time.strftime("%H:%M") %></td>
+        <td><%= l.end_time.strftime("%H:%M") %></td>
+        <td><%= l.room %></td>
+        <td><%= link_to '[show]', l %></td>
+        <td><%= link_to '[edit]', edit_lesson_path(l) %></td>
+        <td><%= link_to '[delete]', l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
