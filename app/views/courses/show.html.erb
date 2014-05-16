@@ -26,39 +26,39 @@
 <div id="lessons">
   <h3><%= link_to '[create lesson(s)]', new_lesson_url(:course_id => @course) %></h3>
 
-  <table class="table">
-	<thead>
-	  <tr>
-		<% if !@course.lessons.empty? %>
+  <% if !@course.lessons.empty? %>
+    <table class="table">
+	  <thead>
+		<tr>
 		  <th>actions</th>
 		  <th>date</th>
 		  <th>start time</th>
 		  <th>end time</th>
 		  <th>room</th>
-		<% else %>
-		  <th>no lessons</th>
-		<% end %>
-	  </tr>
-	</thead>
-
-	<% @course.lessons.each do |l| %>
-	  <tbody>
-	    <tr>
-		  <td>
-			<%= link_to '[show]', lesson_path(l) %>
-			<%= link_to '[edit]', edit_lesson_path(l) %>
-			<%= link_to '[delete]', lesson_path(l),
-				:confirm => 'are you sure?',
-			    :method => :delete %>
-		  </td>
-		  <td><%=h l.date.to_s(:day_month_date).downcase %></td>
-		  <td><%=h l.start_time.strftime("%H:%M") %></td>
-		  <td><%=h l.end_time.strftime("%H:%M") %></td>
-		  <td><%=h l.room %></td>
 		</tr>
-	  </tbody>
-	<% end %>
-  </table>
+	  </thead>
+	  
+	  <% @course.lessons.each do |l| %>
+	    <tbody>
+	      <tr>
+			<td>
+			  <%= link_to '[show]', lesson_path(l) %>
+			  <%= link_to '[edit]', edit_lesson_path(l) %>
+			  <%= link_to '[delete]', lesson_path(l),
+				  :confirm => 'are you sure?',
+			      :method => :delete %>
+			</td>
+			<td><%=h l.date.to_s(:day_month_date).downcase %></td>
+			<td><%=h l.start_time.strftime("%H:%M") %></td>
+			<td><%=h l.end_time.strftime("%H:%M") %></td>
+			<td><%=h l.room %></td>
+		  </tr>
+		</tbody>
+	  <% end %>
+	</table>
+  <% else %>
+    <th>no lessons</th>
+  <% end %>
 </div>
 
 <br />

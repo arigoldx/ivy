@@ -1,35 +1,33 @@
 <h1>lessons</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-	  <% if !@lessons.empty? %>
-        <th>course</th>
-        <th>date</th>
-        <th>start time</th>
-        <th>end time</th>
-        <th>room</th>
-        <th colspan="3"></th>
-	  <% else %>
-	    <th>no lessons</th>
-	  <% end %>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @lessons.each do |l| %>
+<% if !@lessons.empty? %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= link_to l.course.full_name, course_path(l.course) %></td>
-        <td><%= l.date %></td>
-        <td><%= l.start_time.strftime("%H:%M") %></td>
-        <td><%= l.end_time.strftime("%H:%M") %></td>
-        <td><%= l.room %></td>
-        <td><%= link_to '[show]', l %></td>
-        <td><%= link_to '[edit]', edit_lesson_path(l) %></td>
-        <td><%= link_to '[delete]', l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<th>course</th>
+		<th>date</th>
+		<th>start time</th>
+		<th>end time</th>
+		<th>room</th>
+		<th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+	</thead>
+	
+	<tbody>
+      <% @lessons.each do |l| %>
+        <tr>
+          <td><%= link_to l.course.full_name, course_path(l.course) %></td>
+          <td><%= l.date %></td>
+          <td><%= l.start_time.strftime("%H:%M") %></td>
+          <td><%= l.end_time.strftime("%H:%M") %></td>
+          <td><%= l.room %></td>
+          <td><%= link_to '[show]', l %></td>
+          <td><%= link_to '[edit]', edit_lesson_path(l) %></td>
+          <td><%= link_to '[delete]', l, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+      <% end %>
+	</tbody>
+  </table>
+<% else %>
+  <p>new lessons are created on the course page</p>
+<% end %>
