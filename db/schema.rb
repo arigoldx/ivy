@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140506000828) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "activities", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -28,10 +31,10 @@ ActiveRecord::Schema.define(version: 20140506000828) do
     t.datetime "updated_at"
   end
 
-  add_index "activity_logs", ["activity_id"], name: "index_activity_logs_on_activity_id"
-  add_index "activity_logs", ["course_id"], name: "index_activity_logs_on_course_id"
-  add_index "activity_logs", ["lesson_id"], name: "index_activity_logs_on_lesson_id"
-  add_index "activity_logs", ["student_id"], name: "index_activity_logs_on_student_id"
+  add_index "activity_logs", ["activity_id"], name: "index_activity_logs_on_activity_id", using: :btree
+  add_index "activity_logs", ["course_id"], name: "index_activity_logs_on_course_id", using: :btree
+  add_index "activity_logs", ["lesson_id"], name: "index_activity_logs_on_lesson_id", using: :btree
+  add_index "activity_logs", ["student_id"], name: "index_activity_logs_on_student_id", using: :btree
 
   create_table "attendance_types", force: true do |t|
     t.string   "name"
@@ -49,10 +52,10 @@ ActiveRecord::Schema.define(version: 20140506000828) do
     t.datetime "updated_at"
   end
 
-  add_index "attendances", ["attendance_type_id"], name: "index_attendances_on_attendance_type_id"
-  add_index "attendances", ["course_id"], name: "index_attendances_on_course_id"
-  add_index "attendances", ["lesson_id"], name: "index_attendances_on_lesson_id"
-  add_index "attendances", ["student_id"], name: "index_attendances_on_student_id"
+  add_index "attendances", ["attendance_type_id"], name: "index_attendances_on_attendance_type_id", using: :btree
+  add_index "attendances", ["course_id"], name: "index_attendances_on_course_id", using: :btree
+  add_index "attendances", ["lesson_id"], name: "index_attendances_on_lesson_id", using: :btree
+  add_index "attendances", ["student_id"], name: "index_attendances_on_student_id", using: :btree
 
   create_table "coursenotes", force: true do |t|
     t.integer  "lesson_id"
@@ -63,8 +66,8 @@ ActiveRecord::Schema.define(version: 20140506000828) do
     t.datetime "updated_at"
   end
 
-  add_index "coursenotes", ["course_id"], name: "index_coursenotes_on_course_id"
-  add_index "coursenotes", ["lesson_id"], name: "index_coursenotes_on_lesson_id"
+  add_index "coursenotes", ["course_id"], name: "index_coursenotes_on_course_id", using: :btree
+  add_index "coursenotes", ["lesson_id"], name: "index_coursenotes_on_lesson_id", using: :btree
 
   create_table "courseplans", force: true do |t|
     t.integer  "lesson_id"
@@ -75,8 +78,8 @@ ActiveRecord::Schema.define(version: 20140506000828) do
     t.datetime "updated_at"
   end
 
-  add_index "courseplans", ["course_id"], name: "index_courseplans_on_course_id"
-  add_index "courseplans", ["lesson_id"], name: "index_courseplans_on_lesson_id"
+  add_index "courseplans", ["course_id"], name: "index_courseplans_on_course_id", using: :btree
+  add_index "courseplans", ["lesson_id"], name: "index_courseplans_on_lesson_id", using: :btree
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -93,8 +96,8 @@ ActiveRecord::Schema.define(version: 20140506000828) do
     t.datetime "updated_at"
   end
 
-  add_index "enrollments", ["course_id"], name: "index_enrollments_on_course_id"
-  add_index "enrollments", ["student_id"], name: "index_enrollments_on_student_id"
+  add_index "enrollments", ["course_id"], name: "index_enrollments_on_course_id", using: :btree
+  add_index "enrollments", ["student_id"], name: "index_enrollments_on_student_id", using: :btree
 
   create_table "lessons", force: true do |t|
     t.integer  "course_id"
@@ -106,7 +109,7 @@ ActiveRecord::Schema.define(version: 20140506000828) do
     t.datetime "updated_at"
   end
 
-  add_index "lessons", ["course_id"], name: "index_lessons_on_course_id"
+  add_index "lessons", ["course_id"], name: "index_lessons_on_course_id", using: :btree
 
   create_table "students", force: true do |t|
     t.string   "first_name"

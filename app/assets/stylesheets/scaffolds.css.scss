@@ -1,5 +1,5 @@
 body {
-  background-color: #00CC66;
+  background-color: #339900;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -7,12 +7,13 @@ body {
 }
 
 .navbar {
-  background-color: #339900;
+  background-color: #00CC66;
   color: #FF9999;
 }
 
 .navbar .nav > li > a {
   color: #CCFFCC;
+  text-decoration:none;
 }
 
 p, ol, ul, td {
@@ -28,9 +29,10 @@ pre {
 }
 
 a {
-  color: #000;
+  text-decoration:underline;
+  color: #53CF29;
   &:visited {
-    color: #666;
+    color: #663300;
   }
   &:hover {
     color: #fff;

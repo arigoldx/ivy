@@ -1,3 +1,9 @@
+.__              
+|__|__  _____.__.
+|  \  \/ <   |  |
+|  |\   / \___  |
+|__| \_/  / ____|
+          \/     
 * meta
 i'm kinda using the pomodoro technique here.
 
@@ -12,6 +18,19 @@ then we're all, with ema, going to go to noisette. i haven't a clue
 how much time i can do.
 
 * goals
+** META compare ivy to ivy-rails
+models, specifically student and lesson
+controllers
+views
+
+** UPDATE redo README.md on github.com/arigoldx/ivy-rails
+
+** FLOW switch Sqlite to PostgreSQL
+so that production and development are the same. that way i can just
+move the database around if there are issues.
+
+
+
 ** MACRO get lesson page up, ie. copy lessons/show.rhtml
 
 ** FEATURE track activities
@@ -44,14 +63,16 @@ https://devcenter.heroku.com/articles/heroku-postgres-import-export
 that is, it'd be nice to be able to reset the database if people go
 crazy.
 
+** MACRO use rails variants, new in 4.1!
+http://edgeguides.rubyonrails.org/4_1_release_notes.html#action-pack-variants
+
 ** QUESTION buttons - back, new, edit, all of 'em
 
 http://alexwolfe.github.io/Buttons/
 
 
-** MACRO use rails variants, new in 4.1!
-http://edgeguides.rubyonrails.org/4_1_release_notes.html#action-pack-variants
-* DONE
+
+* archive
 ** FEATURE enrollments
 TEST the create and destroy actions
 
@@ -193,11 +214,16 @@ E 5:00
 S 4:45
 E 6:00
 (% (+ (- 46 10) (- 38 10) (- 70 47) (- 60 18) 60 15 149) 60)
-**     THURSDAY (+ 25 20 5 
-*** 25 START 11:40
-*** 20 START 12:25 
-***  5 START 2:30
+**     THURSDAY ~ 3 hours
+*** 11:40 25
+*** 12:25 20
+*** 14:30  5
 mira in the jumper, anni out with Jill
-*** 30 START 4:40
-*** 25 START 5:16
-*** START 5:46
+*** 16:40 30
+*** 17:16 25
+*** 17:46 80
+
+**     FRIDAY
+*** 50 12:37 1:27
+*** 30 2:30 3:00
+*** 3:04 
