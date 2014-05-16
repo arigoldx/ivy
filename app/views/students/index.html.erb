@@ -3,15 +3,17 @@
 <%= link_to '[new student]', new_student_path %><br>
 <br>
 
-<table class="table">
-  <tbody>
-    <% @students.each do |student| %>
-      <tr>
-		<td><%= student.complete_name %></td>
-        <td><%= link_to '[show]', student %></td>
-        <td><%= link_to '[edit]', edit_student_path(student) %></td>
-        <td><%= link_to '[delete]', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if !@students.empty? %>
+  <table class="table">
+	<tbody>
+      <% @students.each do |student| %>
+        <tr>
+		  <td><%= student.complete_name %></td>
+          <td><%= link_to '[show]', student %></td>
+          <td><%= link_to '[edit]', edit_student_path(student) %></td>
+          <td><%= link_to '[delete]', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+	  <% end %>
+	</tbody>
+  </table>
+<% end %>
