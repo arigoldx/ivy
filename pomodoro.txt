@@ -60,8 +60,16 @@ should redirect to
 
 https://devcenter.heroku.com/articles/heroku-postgres-import-export
 
-that is, it'd be nice to be able to reset the database if people go
-crazy.
+steps:
+1. heroku pgbackups:capture
+   this will capture what's live
+2. heroku pgbackups
+   to see what's been captured
+3. curl -o latest.dump `heroku pgbackups:url`
+   get the latest. look around devcenter.heroku.com for getting
+   earlier ones
+4. pg_restore --verbose --clean --no-acl --no-owner -d ivy latest.dump
+   that'll do it!
 
 ** MACRO use rails variants, new in 4.1!
 http://edgeguides.rubyonrails.org/4_1_release_notes.html#action-pack-variants
@@ -227,4 +235,6 @@ mira in the jumper, anni out with Jill
 *** 50 12:37 1:27
 *** 30 2:30 3:00
 *** 27 3:04 3:31
-*** 3:39 
+*** 41 3:39 4:20
+*** 25 5:00 5:25
+*** 5:30 
