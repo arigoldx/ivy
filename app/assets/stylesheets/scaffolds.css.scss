@@ -1,3 +1,5 @@
+$margin-color: #1F5C00;
+
 body {
   background-color: #339900;
   color: #333;
@@ -80,5 +82,9 @@ div {
 }
 
 .ivy-module {
-	border: 1px solid lightgray;
+	background-color: #2E8A00;
+}
+
+.table > thead > tr > th {
+	border-bottom: 1px solid #1A4C00;
 }

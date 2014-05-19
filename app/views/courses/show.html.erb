@@ -3,7 +3,7 @@
 <%= link_to '[edit details]', edit_course_path(@course) %><br />
 
 <% if !@course.activity_logs.empty? %>
-  <div class="ivy-module">
+  <div id="activity" class="ivy-module">
 	<br />
 	<h2>activity</h2>
     <% for activity_log in @course.activity_logs.find(:all, :order => "date DESC") %>
@@ -15,7 +15,7 @@
 <% end %>
 
 <% if !@attendances.empty? %>
-  <div class="ivy-module">
+  <div id="attendance" class="ivy-module">
 	<h2>attendance</h2>
 	<div id="table">
 	  <%= render :partial => "attendance_list" %>
@@ -23,20 +23,18 @@
   </div>
 <% end %>
 
-<div class="ivy-module">
+<div id="lesson" class="ivy-module">
   <h2>lessons</h2>
-  <div id="lessons">
-	<%= link_to '[create lesson(s)]', new_lesson_url(:course_id => @course) %><br>
-	<br>
-	<% if !@course.lessons.empty? %>
-	  <%= render :partial => "lesson_list" %>
-	<% else %>
-      (no lessons yet)
-	<% end %>
-  </div>
+  <%= link_to '[create lesson(s)]', new_lesson_url(:course_id => @course) %><br>
+  <br>
+  <% if !@course.lessons.empty? %>
+    <%= render :partial => "lesson_list" %>
+  <% else %>
+    (no lessons yet)
+  <% end %>
 </div>
 
-<div id="ivy-module">
+<div id="enrollments" class="ivy-module">
   <h2>enrollment</h2>
   <p>
 	<% for enrollment in @course.enrollments %>
