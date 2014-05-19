@@ -3,67 +3,41 @@
 <%= link_to '[edit details]', edit_course_path(@course) %><br />
 
 <% if !@course.activity_logs.empty? %>
-  <br />
-  <h2>activity</h2>
-  <div id="activity">
+  <div class="ivy-module">
+	<br />
+	<h2>activity</h2>
     <% for activity_log in @course.activity_logs.find(:all, :order => "date DESC") %>
       <%= link_to 'edit', edit_activity_log_path(activity_log) %> |
       <%= link_to 'delete', activity_log_path(activity_log), :confirm => 'are you sure?', :method => :delete %> |
       <%=h activity_log.activity.name + " :: " + activity_log.date.to_s(:day_month_date).downcase %><br />
-    <% end %>
+	<% end %>
   </div>
 <% end %>
 
-<h2>attendance</h2>
-<div id="attendance">
-  <div id="table">
-    <%= render :partial => "attendance_list" %>
+<% if !@attendances.empty? %>
+  <div class="ivy-module">
+	<h2>attendance</h2>
+	<div id="table">
+	  <%= render :partial => "attendance_list" %>
+	</div>
+  </div>
+<% end %>
+
+<div class="ivy-module">
+  <h2>lessons</h2>
+  <div id="lessons">
+	<%= link_to '[create lesson(s)]', new_lesson_url(:course_id => @course) %><br>
+	<br>
+	<% if !@course.lessons.empty? %>
+	  <%= render :partial => "lesson_list" %>
+	<% else %>
+      (no lessons yet)
+	<% end %>
   </div>
 </div>
 
-<br />
-<h2>lessons</h2>
-<div id="lessons">
-  <h3><%= link_to '[create lesson(s)]', new_lesson_url(:course_id => @course) %></h3>
-
-  <% if !@course.lessons.empty? %>
-    <table class="table">
-	  <thead>
-		<tr>
-		  <th>actions</th>
-		  <th>date</th>
-		  <th>start time</th>
-		  <th>end time</th>
-		  <th>room</th>
-		</tr>
-	  </thead>
-	  
-	  <% @course.lessons.each do |l| %>
-	    <tbody>
-	      <tr>
-			<td>
-			  <%= link_to '[show]', lesson_path(l) %>
-			  <%= link_to '[edit]', edit_lesson_path(l) %>
-			  <%= link_to '[delete]', lesson_path(l),
-				  :confirm => 'are you sure?',
-			      :method => :delete %>
-			</td>
-			<td><%=h l.date.to_s(:day_month_date).downcase %></td>
-			<td><%=h l.start_time.strftime("%H:%M") %></td>
-			<td><%=h l.end_time.strftime("%H:%M") %></td>
-			<td><%=h l.room %></td>
-		  </tr>
-		</tbody>
-	  <% end %>
-	</table>
-  <% else %>
-    <th>no lessons</th>
-  <% end %>
-</div>
-
-<br />
-<h2>enrollment</h2>
-<div id="enrollment">
+<div id="ivy-module">
+  <h2>enrollment</h2>
   <p>
 	<% for enrollment in @course.enrollments %>
       <%= link_to '[remove student]', enrollment_path(enrollment), :confirm => 'are you sure?', :method => :delete %> |
@@ -72,14 +46,12 @@
   </p>
   
   <% if !Student.list_sans_enrolled(@course).empty? %>
-    <h3>enroll a student</h3>
 	<%= bootstrap_form_tag layout: :horizontal, url: enrollments_path  do |f| %>
       <%= f.hidden_field :course_id, :value => @course.id %>
       <%= f.select(:student_id, Student.list_sans_enrolled(@course), :multiple => "true", :id => "student_ids") %>
       <%= f.submit "enroll student" %>
 	<% end %>
   <% else %>
-    <hr />
 	there are no students to enroll - all potential students have been enrolled, or new student records might need to be created
   <% end %>
 </div>
