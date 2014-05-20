@@ -1,21 +1,35 @@
 $margin-color: #1F5C00;
 
 body {
-  background-color: #339900;
-  color: #333;
+  background-color: #143D00;
+  color: #6C9147;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
 
+a {
+  text-decoration:underline;
+  color: #53CF29;
+  &:visited {
+    color: #338533;
+  }
+  &:hover {
+    background-color: #669900;
+  }
+}
+
 .navbar {
-  background-color: #00CC66;
+  background-color: #5C8533;
   color: #FF9999;
 }
 
 .navbar .nav > li > a {
-  color: #CCFFCC;
+  color: #333;
   text-decoration:none;
+  &:hover {
+	  background-color: #669900;
+  }
 }
 
 p, ol, ul, td {
@@ -28,18 +42,6 @@ pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
-}
-
-a {
-  text-decoration:underline;
-  color: #53CF29;
-  &:visited {
-    color: #663300;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
 }
 
 div {

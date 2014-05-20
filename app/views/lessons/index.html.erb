@@ -16,7 +16,7 @@
 	<tbody>
       <% @lessons.each do |l| %>
         <tr>
-          <td><%= link_to l.course.full_name, course_path(l.course) %></td>
+          <td><%= link_to "[" + l.course.full_name + "]", course_path(l.course) %></td>
           <td><%= l.date %></td>
           <td><%= l.start_time.strftime("%H:%M") %></td>
           <td><%= l.end_time.strftime("%H:%M") %></td>

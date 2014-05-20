@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= f.hidden_field(:course_id, :value => @lesson.course.id) %>
+  <%= f.hidden_field(:course_id, :value => @course.id) %>
   <%= f.date_select :date, :value => Time.now.strftime("%F") %>
   <%= f.time_select :start_time, :value => Time.now.strftime("%H:%M") %>
   <%= f.time_select :end_time, :value => Time.now.strftime("%H:%M") %>
