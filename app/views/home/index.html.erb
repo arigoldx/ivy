@@ -2,10 +2,9 @@
 
 <% if @total > 0 %>
   <% for lesson in @lessons %>
-    <%= link_to lesson.course.name + ' ' + lesson.course.section, lesson_path(lesson.id) %><br />
-<% if false %>
-    <%=h lesson.start_time.to_s(:hour_minute_ampm) %> to <%= lesson.end_time.to_s(:hour_minute_ampm) %><br />
-<% end %>
+    <%= link_to lesson.course.name + ' ' + lesson.course.section, lesson_path(lesson.id) %>
+    <%= lesson.start_time.strftime("%l:%M") %> to
+	<%= lesson.end_time.strftime("%l:%M") %><br>
   <% end %>
 <% else %>
   nothing going on today

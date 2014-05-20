@@ -18,6 +18,7 @@ then we're all, with ema, going to go to noisette. i haven't a clue
 how much time i can do.
 
 * goals
+** FEATURE list lessons by date, then time
 ** CORE create multiple lessons
 Tue May 20 12:49:23 PDT 2014
 looks good. need to write tests.
@@ -260,9 +261,10 @@ mira in the jumper, anni out with Jill
 *** 57 9:50 10:47
 
 
-**       tuesday May 20 
+**       tuesday May 20 (+ 30 35 12 30 
 *** 30 10:30 11:00
 *** 35 11:20 11:55
 *** 12 12:38 12:50
 mira woke up
-*** 2:42  
+*** 30 2:42 3:12
+*** 4:22 

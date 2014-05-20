@@ -1,14 +1,10 @@
-<% title(@course.full_name + ", " + @lesson.date.to_s(:day_month_date).downcase) %>
-
 <h2>
-  <div id="heading-date"><%= @lesson.date.to_s(:day_month_date).downcase %></div>
+  <div id="heading-date"><%= @lesson.date.strftime("%a %F") %></div>
   <%= link_to @course.full_name, course_path(@course) %><br />
   <%= "{" + (@lesson_array.index(@lesson) + 1).ordinalize.to_s + " of " + @lesson_array.length.to_s + "}" %><br />
   <%= @lesson.start_time.strftime("%l:%M") %> to <%= @lesson.end_time.strftime("%l:%M") %><br />
-  <%= link_to 'previous', lesson_path(@course,@lesson.previous) if @lesson.previous %>
-<% if false %>
-  <%= link_to 'next', lesson_path(@course,@lesson.next) if @lesson.next %>
-<% end %>
+  <%= link_to 'previous', lesson_path(@lesson.previous) if @lesson.previous %>
+  <%= link_to 'next', lesson_path(@lesson.next) if @lesson.next %>
 </h2>
 
 <!-- taking attendance -->
