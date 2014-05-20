@@ -10,10 +10,7 @@ body {
 
 a {
   text-decoration:underline;
-  color: #53CF29;
-  &:visited {
-    color: #338533;
-  }
+  color: #338533;
   &:hover {
     background-color: #669900;
   }
@@ -84,7 +81,7 @@ div {
 }
 
 .ivy-module {
-	background-color: #2E8A00;
+	background-color: #123700;
 }
 
 .table > thead > tr > th {

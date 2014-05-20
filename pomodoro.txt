@@ -18,6 +18,7 @@ then we're all, with ema, going to go to noisette. i haven't a clue
 how much time i can do.
 
 * goals
+** multiple select to enroll students
 ** META compare ivy to ivy-rails
 models, specifically student and lesson
 controllers
