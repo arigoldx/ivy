@@ -37,9 +37,8 @@
 <div id="enrollments" class="ivy-module">
   <h2>enrollment</h2>
   <p>
-	<% for enrollment in @course.enrollments %>
-      <%= link_to '[remove student]', enrollment_path(enrollment), :confirm => 'are you sure?', :method => :delete %> |
-      <%=h enrollment.student.name_last_c_first %><br />
+	<% if !@course.enrollments.empty? %>
+  	  <%= render :partial => "enrollment_list" %>
 	<% end %>
   </p>
   

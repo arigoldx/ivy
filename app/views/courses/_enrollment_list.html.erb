@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+	<tr>
+	  <th>name</th>
+	  <th>actions</th>
+	</tr>
+  </thead>
+  
+  <% @course.enrollments.each do |e| %>
+    <tbody>
+	  <tr>
+		<td><%=h e.student.name_last_c_first %></td>
+		<td>
+      <%= link_to '[remove student]', enrollment_path(e),
+		  :confirm => 'are you sure?',
+	      :method => :delete %>
+		</td>
+	  </tr>
+	</tbody>
+  <% end %>
+</table>

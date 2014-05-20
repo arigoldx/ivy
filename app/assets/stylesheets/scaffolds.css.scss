@@ -1,7 +1,8 @@
-$margin-color: #1F5C00;
+$ivy-background: #143D00;
+
 
 body {
-  background-color: #143D00;
+  background-color: $ivy-background;
   color: #6C9147;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -85,5 +86,18 @@ div {
 }
 
 .table > thead > tr > th {
-	border-bottom: 1px solid #1A4C00;
+	border-bottom: 1px solid #436433;
+}
+
+.table > tbody + tbody {
+  border-top: 1px solid $ivy-background;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  border-top: 1px solid #2b5019;
 }

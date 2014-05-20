@@ -1,5 +1,5 @@
-.__              
-|__|__  _____.__.
+ __              
+|__|__  _____ __
 |  \  \/ <   |  |
 |  |\   / \___  |
 |__| \_/  / ____|
@@ -18,6 +18,14 @@ then we're all, with ema, going to go to noisette. i haven't a clue
 how much time i can do.
 
 * goals
+** CORE create multiple lessons
+Tue May 20 12:49:23 PDT 2014
+looks good. need to write tests.
+
+need to extend Date in order to parse the date_select
+time_select
+
+** TEST test new Date method
 ** multiple select to enroll students
 ** META compare ivy to ivy-rails
 models, specifically student and lesson
@@ -57,6 +65,19 @@ http://stackoverflow.com/questions/19968638/refactoring-ruby-on-rails-link-to-wi
 really, i need to look into movement. that is, where each action
 should redirect to
 
+** MACRO use rails variants, new in 4.1!
+http://edgeguides.rubyonrails.org/4_1_release_notes.html#action-pack-variants
+
+** QUESTION buttons - back, new, edit, all of 'em
+
+http://alexwolfe.github.io/Buttons/
+
+
+
+* tests
+** creating lessons
+
+* archive
 ** MACRO something like `heroku reset database`
 
 https://devcenter.heroku.com/articles/heroku-postgres-import-export
@@ -72,16 +93,6 @@ steps:
 4. pg_restore --verbose --clean --no-acl --no-owner -d ivy latest.dump
    that'll do it!
 
-** MACRO use rails variants, new in 4.1!
-http://edgeguides.rubyonrails.org/4_1_release_notes.html#action-pack-variants
-
-** QUESTION buttons - back, new, edit, all of 'em
-
-http://alexwolfe.github.io/Buttons/
-
-
-
-* archive
 ** FEATURE enrollments
 TEST the create and destroy actions
 
@@ -105,7 +116,7 @@ will cause the bug but indexing students won't.
 ** make the forms prettier
 ** figure out why :time isn't going into new lessons
 * time tracking
-**        monday May 12, ~ 3 hours
+**        monday May 12 : 183 minutes
 *** 20 START Mon May 12 11:29:11 PDT 2014 END Mon May 12 11:49:11 PDT 2014
 first attempt. gonna work for 20 minutes and then take a 3 - 5 minute break.
 
@@ -144,7 +155,7 @@ so far so good!
 this is evening working with ema here and anni in and out. i'm just
 curious to see how much work i can get done.
 
-**       tuesday May 13, ~ 4.25 hours
+**       tuesday May 13 : 257 minutes
 *** 21 START Tue May 13 10:00:21 PDT 2014 END Tue May 13 10:21:21 PDT 2014
 second day. 
 
@@ -185,7 +196,7 @@ see yakov one of these days.
 *** 25 START Tue May 13 17:54:20 PDT 2014
 *** 18 START Tue May 13 20:30:59 PDT 2014
 *** 25 START Tue May 13 22:29:02 PDT 2014
-**     wednesday May 14, ~ 6 hours
+**     wednesday May 14 : 478 minutes
 *** 25 START Wed May 14 09:59:45 PDT 2014
 *** 25 START Wed May 14 10:31:19 PDT 2014
 *** 25 START Wed May 14 11:21:01 PDT 2014
@@ -223,7 +234,7 @@ E 5:00
 S 4:45
 E 6:00
 (% (+ (- 46 10) (- 38 10) (- 70 47) (- 60 18) 60 15 149) 60)
-**      thursday May 15, ~ 3 hours
+**      thursday May 15 : 185 minutes
 *** 11:40 25
 *** 12:25 20
 *** 14:30  5
@@ -232,7 +243,7 @@ mira in the jumper, anni out with Jill
 *** 17:16 25
 *** 17:46 80
 
-**        friday May 16, ~ 3.3 hours
+**        friday May 16 : 199 minutes
 *** 50 12:37 1:27
 *** 30 2:30 3:00
 *** 27 3:04 3:31
@@ -240,10 +251,18 @@ mira in the jumper, anni out with Jill
 *** 25 5:00 5:25
 *** 26 5:30 5:56
 (+ 50 30 27 41 25 26)
-**        monday May 19, 
+**        monday May 19 : 224 minutes
 *** 23 1:27 1:50
 *** 30 3:15 3:45
 *** 38 3:50 4:28
 *** 36 4:34 5:10
 *** 40 8:00 8:40
-***    9:50 
+*** 57 9:50 10:47
+
+
+**       tuesday May 20 
+*** 30 10:30 11:00
+*** 35 11:20 11:55
+*** 12 12:38 12:50
+mira woke up
+*** 2:42  

@@ -34,18 +34,11 @@ class LessonsController < ApplicationController
   # POST /lessons
   # POST /lessons.json
   def create
-    puts ">>>>>>>>>>>>>>>>>>>>"
-    puts "lesson_params: " + lesson_params.to_s
-    puts ">>>>>>>>>>>>>>>>>>>>"
-
-
     if params[:lesson][:day_of_week]
-#      @end_date = Date.new *flatten_end_date_select params[:lesson]
-      @end_date = Date.new params[:lesson]["end_date(1i)"].to_i, params[:lesson]["end_date(2i)"].to_i, params[:lesson]["end_date(3i)"].to_i
-#/      @current_date = Date.new *flatten_start_date_select params[:lesson]
-      @current_date = Date.new params[:lesson]["start_date(1i)"].to_i, params[:lesson]["start_date(2i)"].to_i, params[:lesson]["start_date(3i)"].to_i
+      @end_date = Date.new_from_select params, "lesson", "end_date"
+      @current_date = Date.new_from_select params, "lesson", "start_date"
  
-     while @current_date.cwday != params[:lesson][:day_of_week].to_i
+      while @current_date.cwday != params[:lesson][:day_of_week].to_i
         @current_date += 1
       end
       while @current_date <= @end_date

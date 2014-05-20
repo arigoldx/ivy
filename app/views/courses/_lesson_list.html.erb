@@ -1,28 +1,28 @@
 <table class="table">
   <thead>
 	<tr>
-	  <th>actions</th>
 	  <th>date</th>
 	  <th>start time</th>
 	  <th>end time</th>
 	  <th>room</th>
+	  <th>actions</th>
 	</tr>
   </thead>
   
   <% @course.lessons.each do |l| %>
     <tbody>
 	  <tr>
+		<td><%=h l.date.to_s(:day_month_date).downcase %></td>
+		<td><%=h l.start_time.strftime("%H:%M") %></td>
+		<td><%=h l.end_time.strftime("%H:%M") %></td>
+		<td><%=h l.room %></td>
 		<td>
 		  <%= link_to '[show]', lesson_path(l) %>
 		  <%= link_to '[edit]', edit_lesson_path(l) %>
 		  <%= link_to '[delete]', lesson_path(l),
 			  :confirm => 'are you sure?',
-		  :method => :delete %>
+		      :method => :delete %>
 		</td>
-		<td><%=h l.date.to_s(:day_month_date).downcase %></td>
-		<td><%=h l.start_time.strftime("%H:%M") %></td>
-		<td><%=h l.end_time.strftime("%H:%M") %></td>
-		<td><%=h l.room %></td>
 	  </tr>
 	</tbody>
   <% end %>

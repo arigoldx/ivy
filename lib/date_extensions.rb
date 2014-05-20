@@ -3,12 +3,10 @@ class Date
     puts "barkbarkbark"
   end
 
-#  def flatten_end_date_select hash
-#    %w(1 2 3).map { |e| hash["end_date(#{e}i)"].to_i }
-#  end
-#
-#  def flatten_start_date_select hash
-#    %w(1 2 3).map { |e| hash["end_date(#{e}i)"].to_i }
-#  end
-
+  def self.new_from_select(date_param, date_model, date_string)
+    date_array = %w(1 2 3).map do |e|
+      date_param[date_model][date_string + "(#{e}i)"].to_i
+    end
+    return Date.new *date_array
+  end
 end
