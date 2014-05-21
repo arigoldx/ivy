@@ -18,6 +18,9 @@ then we're all, with ema, going to go to noisette. i haven't a clue
 how much time i can do.
 
 * goals
+** MACRO remove bootstrap_form gem
+because it's another layer & another dependency
+AND I should know how to do it first
 ** FEATURE list lessons by date, then time
 ** CORE create multiple lessons
 Tue May 20 12:49:23 PDT 2014
@@ -261,7 +264,7 @@ mira in the jumper, anni out with Jill
 *** 57 9:50 10:47
 
 
-**       tuesday May 20 (+ 30 35 12 30 27 30 
+**       tuesday May 20 (+ 30 35 12 30 27 30 32 13)
 *** 30 10:30 11:00
 *** 35 11:20 11:55
 *** 12 12:38 12:50
@@ -269,4 +272,8 @@ mira woke up
 *** 30 2:42 3:12
 *** 27 4:22 4:49
 *** 30 4:56 5:26
-*** 5:34 
+*** 32 5:34 6:06
+*** 13 6:12 6:25
+called up to help with mira
+
+*** 7:05 

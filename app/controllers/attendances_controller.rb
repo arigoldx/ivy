@@ -26,25 +26,23 @@ class AttendancesController < ApplicationController
   def create
     @attendance = Attendance.new(attendance_params)
 
-        student_list = ""
-        for student_id in params[:student]
-            @attendance = Attendance.new(params[:attendance])
-            @attendance.student_id = student_id
-            @attendance.date = @attendance.lesson.date
-            @attendance.save
-            if student_list.empty?
-                student_list = @attendance.student.name_first_last
-            else
-                student_list << ", " + @attendance.student.name_first_last
-            end
-
-        end
-        flash[:notice] = student_list + ' marked ' + @attendance.attendance_type.name
-        redirect_to lesson_url(@attendance.lesson.id)
-
+    student_list = ""
+    for student_id in params[:students]
+      @attendance.student_id = student_id
+      @attendance.date = @attendance.lesson.date
+      @attendance.save
+      if student_list.empty?
+        student_list = @attendance.student.name_first_last
+      else
+        student_list << ", " + @attendance.student.name_first_last
+      end
+      
+    end
+    flash[:notice] = student_list + ' marked ' + @attendance.attendance_type.name
+    
     respond_to do |format|
       if @attendance.save
-        format.html { redirect_to @attendance, notice: 'attendance was successfully created.' }
+        format.html { redirect_to lesson_url(@attendance.lesson_id), notice: 'attendance was successfully created.' }
         format.json { render :show, status: :created, location: @attendance }
       else
         format.html { render :new }

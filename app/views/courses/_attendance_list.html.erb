@@ -1,19 +1,17 @@
 <table class="table">
   <thead>
     <tr>
-      <td>"first name"</td>
-      <td>"last name"</td>
-      <td>"attendance type"</td>
-      <td>"count"</td>
+      <td>first name</td>
+      <td>last name</td>
+      <td>attendance type</td>
     </tr>
   </thead>
   <tbody>
   <% @attendances.each do |a| %>
   <tr class="<%= cycle("even","odd") %>">
-    <td><%=h a.first_name %></td>
-    <td><%=h a.last_name %></td>
+    <td><%=h a.student.first_name %></td>
+    <td><%=h a.student.last_name %></td>
     <td><%=h a.attendance_type.name %></td>
-    <td><%=h a.count %></td>
   </tr>
   <% end %>
   </tbody>

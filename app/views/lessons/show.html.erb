@@ -13,24 +13,31 @@
 <b><%= link_to_function "take attendance", "Element.toggle('take_attendance')" %></b>
 <% end %>
 <div id="take_attendance">
-  <% form_tag :url => attendances_path %>
-    <%= hidden_field_tag :course_id, :value => @course.id %>
-	<%= hidden_field_tag :lesson_id, :value => @lesson.id %>
-	<%= collection_select 'attendance_type', 'attendance_type_id',
+  <%= form_for Attendance.new, url: attendances_path do |f| %>
+    <%= f.hidden_field :course_id, :value => @course.id %>
+	<%= f.hidden_field :lesson_id, :value => @lesson.id %>
+	<%= f.collection_select 'attendance_type_id',
 		                    @attendance_types, :id, :name %>
-	<%= submit_tag "mark attendance" %>
+    <%= select_tag "students", options_from_collection_for_select(@course.students,
+		'id', 'name_first_last'), multiple: true %>
+	<%= f.submit %>
+  <% end %>
+
+
 </div><br>
 
 <!-- attendances listing -->
 <% if !@lesson.attendances.empty? %>
-<b><%= link_to_function "attendance listing", "Element.toggle('attendance_listing')" %></b><br>
-<div id="attendance_listing" style="display:none">
-  <% for attendance in @lesson.attendances.find(:all, :order => "date DESC") %>
-  <%= link_to 'edit', edit_attendance_path(attendance) %>
-  <%= link_to 'delete', attendance_path(attendance), :confirm => 'Are you sure?', :method => :delete %> | 
-  <%=h Student.find(attendance.student_id).name_first_last %>
-  <%= AttendanceType.find(attendance.attendance_type_id).name %> on
-  <%=h attendance.created_at.to_s(:day_month_date).downcase %><br>
+  <% if false %>
+    <b><%= link_to_function "attendance listing", "Element.toggle('attendance_listing')" %></b><br>
   <% end %>
-<br></div>
+  <div id="attendance_listing">
+	<% for attendance in @lesson.attendances.order("date DESC") %>
+	  <%= link_to 'edit', edit_attendance_path(attendance) %>
+	  <%= link_to 'delete', attendance_path(attendance), :confirm => 'Are you sure?', :method => :delete %> | 
+	  <%=h Student.find(attendance.student_id).name_first_last %>
+	  <%= AttendanceType.find(attendance.attendance_type_id).name %> on
+	  <%=h attendance.created_at.to_s(:day_month_date).downcase %><br>
+	<% end %>
+  </div>
 <% end %>
