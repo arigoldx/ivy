@@ -40,7 +40,7 @@ class AttendancesController < ApplicationController
 
         end
         flash[:notice] = student_list + ' marked ' + @attendance.attendance_type.name
-        redirect_to lesson_url(@attendance.course.id,@attendance.lesson.id)
+        redirect_to lesson_url(@attendance.lesson.id)
 
     respond_to do |format|
       if @attendance.save

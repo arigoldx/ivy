@@ -8,7 +8,6 @@
     <% @attendance_types.each do |attendance_type| %>
       <tr>
         <td><%= attendance_type.name %></td>
-        <td><%= link_to '[show]', attendance_type %></td>
         <td><%= link_to '[edit]', edit_attendance_type_path(attendance_type) %></td>
         <td><%= link_to '[delete]', attendance_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

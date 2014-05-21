@@ -11,11 +11,15 @@ class LessonsController < ApplicationController
   # GET /lessons/1.json
   def show
     @attendance_types = AttendanceType.all
+
+    puts ">>>>>>>>>>>>>>>"
+    puts "attendance_types: " + @attendance_types.to_s
+    puts ">>>>>>>>>>>>>>>"
+
     @attendance = Attendance.new
     @me = Lesson.find(params[:id])
     @course = @me.course
     @lesson_array = @course.lessons.order("date")
-    puts "me: #{@me}"
     @lessons = @me.course.lessons.where(:order => "date", :conditions => "date >= Date(now())")
   end
 

@@ -42,7 +42,7 @@ class AttendanceTypesController < ApplicationController
   def update
     respond_to do |format|
       if @attendance_type.update(attendance_type_params)
-        format.html { redirect_to @attendance_type, notice: 'attendance type was successfully updated.' }
+        format.html { redirect_to attendance_type_path, notice: 'attendance type was successfully updated.' }
         format.json { render :show, status: :ok, location: @attendance_type }
       else
         format.html { render :edit }
