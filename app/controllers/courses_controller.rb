@@ -10,20 +10,8 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @course = Course.find(params[:id])
     @attendances = Attendance.joins(:student).where(course_id: @course.id).group("attendances.id, student_id, attendance_type_id")
-
-    puts ">>>>>>>>>>>>>>>"
-    @attendances.each do |a|
-      puts "attendance = " + Student.find(a.student_id).name_first_last
-    end
-    puts ">>>>>>>>>>>>>>>"
-
-# this is what it used to be. delete if the above works
-#    @attendances = Attendance.find_by_sql(["SELECT s.first_name, s.last_name, attendance_type_id, count(*) as count" + 
-#                                           "FROM attendances INNER JOIN students as s on student_id = s.id" +
-#                                           "WHERE course_id = '#{@course.id}'" +
-#                                           "GROUP BY student_id, attendance_type_id"])
-
   end
 
   # GET /courses/new

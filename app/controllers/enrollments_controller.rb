@@ -1,16 +1,27 @@
 class EnrollmentsController < ApplicationController
+  include ActionView::Helpers::TextHelper
 
   # POST /enrollments
   # POST /enrollments.xml
   def create
-    @enrollment = Enrollment.new
-    @enrollment.student_id = params[:student_id]
-    @enrollment.course_id = params[:course_id]
+
+    count = 0
+    save_status = false
+
+    for student_id in params[:students]
+      @enrollment = Enrollment.new
+      @enrollment.course_id = params[:course_id]
+      @enrollment.student_id = student_id
+      if @enrollment.save
+        save_status = true
+        count += 1
+      end
+    end
 
     respond_to do |format|
-      if @enrollment.save
-        flash[:notice] = 'enrolled ' + @enrollment.student.name_first_last
-        format.html { redirect_to course_url(@enrollment.course_id) }
+      if save_status
+        flash[:notice] = 'enrolled ' + pluralize(count, 'student')
+        format.html { redirect_to course_url(params[:course_id]) }
         format.xml  { head :created, :location => enrollment_url(@enrollment) }
       else
         format.html { render :action => "new" }
@@ -33,4 +44,10 @@ class EnrollmentsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  # QQQ in the create method we seem to be ignoring this
+  # Never trust parameters from the scary internet, only allow the white list through.
+    def enrollment_params
+      params.require(:enrollment).permit(:student_id, :course_id)
+    end
 end

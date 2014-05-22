@@ -3,7 +3,9 @@
     <tr>
       <td>first name</td>
       <td>last name</td>
+	  <td>date</td>
       <td>attendance type</td>
+	  <td>actions</td>
     </tr>
   </thead>
   <tbody>
@@ -11,7 +13,13 @@
   <tr class="<%= cycle("even","odd") %>">
     <td><%=h a.student.first_name %></td>
     <td><%=h a.student.last_name %></td>
+	<td><%=h a.date.strftime("%F") %></td>
     <td><%=h a.attendance_type.name %></td>
+	<td><%= link_to '[edit]', edit_attendance_path(a) %>
+	    <%= link_to '[delete]', attendance_path(a),
+			:confirm => 'are you sure?',
+		    :method => :delete %>
+	</td>
   </tr>
   <% end %>
   </tbody>

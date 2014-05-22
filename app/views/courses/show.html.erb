@@ -43,11 +43,13 @@
   </p>
   
   <% if !Student.list_sans_enrolled(@course).empty? %>
-	<%= bootstrap_form_tag layout: :horizontal, url: enrollments_path  do |f| %>
-      <%= f.hidden_field :course_id, :value => @course.id %>
-      <%= f.select(:student_id, Student.list_sans_enrolled(@course), :multiple => "true", :id => "student_ids") %>
-      <%= f.submit "enroll student" %>
-	<% end %>
+	<%= form_tag(enrollments_path, html: { class: 'form-horizontal'}) %>
+      <%= hidden_field_tag :course_id, @course.id %>
+      <%= select_tag "students[]",
+		  options_for_select(Student.list_sans_enrolled(@course)),
+		  { :multiple => "true", size: 10 } %>
+
+      <%= submit_tag "enroll student" %>
   <% else %>
 	there are no students to enroll - all potential students have been enrolled, or new student records might need to be created
   <% end %>

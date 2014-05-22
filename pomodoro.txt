@@ -17,32 +17,23 @@ to get some work done. for example, right now anni's feeding mira and
 then we're all, with ema, going to go to noisette. i haven't a clue
 how much time i can do.
 
-* goals
+* next up
+
+** UPDATE about page and redo README.md
+that is, get some direction and flow
+
+ivy is a tool for teaching
+
 ** MACRO remove bootstrap_form gem
 because it's another layer & another dependency
 AND I should know how to do it first
-** FEATURE list lessons by date, then time
-** CORE create multiple lessons
-Tue May 20 12:49:23 PDT 2014
-looks good. need to write tests.
 
-need to extend Date in order to parse the date_select
-time_select
-
+* goals
 ** TEST test new Date method
-** multiple select to enroll students
 ** META compare ivy to ivy-rails
 models, specifically student and lesson
 controllers
 views
-
-** UPDATE redo README.md on github.com/arigoldx/ivy-rails
-
-** FLOW switch Sqlite to PostgreSQL
-so that production and development are the same. that way i can just
-move the database around if there are issues.
-
-
 
 ** MACRO get lesson page up, ie. copy lessons/show.rhtml
 
@@ -64,7 +55,8 @@ view your pool of lessons in different ways?
 
 http://stackoverflow.com/questions/19968638/refactoring-ruby-on-rails-link-to-with-sorting
 
-** FLOW where appropriate create should redirect to index, not show
+** FEATURE list lessons by date, then time
+** DESIGN where appropriate create should redirect to index, not show
 
 really, i need to look into movement. that is, where each action
 should redirect to
@@ -72,7 +64,7 @@ should redirect to
 ** MACRO use rails variants, new in 4.1!
 http://edgeguides.rubyonrails.org/4_1_release_notes.html#action-pack-variants
 
-** QUESTION buttons - back, new, edit, all of 'em
+** DESIGN buttons - back, new, edit, all of 'em
 
 http://alexwolfe.github.io/Buttons/
 
@@ -82,6 +74,16 @@ http://alexwolfe.github.io/Buttons/
 ** creating lessons
 
 * archive
+** FLOW switch Sqlite to PostgreSQL
+so that production and development are the same. that way i can just
+move the database around if there are issues.
+** CORE create multiple lessons
+Tue May 20 12:49:23 PDT 2014
+looks good. need to write tests.
+
+need to extend Date in order to parse the date_select
+time_select
+
 ** MACRO something like `heroku reset database`
 
 https://devcenter.heroku.com/articles/heroku-postgres-import-export
@@ -264,7 +266,7 @@ mira in the jumper, anni out with Jill
 *** 57 9:50 10:47
 
 
-**       tuesday May 20 (+ 30 35 12 30 27 30 32 13)
+**       tuesday May 20 : 281 minutes
 *** 30 10:30 11:00
 *** 35 11:20 11:55
 *** 12 12:38 12:50
@@ -276,4 +278,14 @@ mira woke up
 *** 13 6:12 6:25
 called up to help with mira
 
-*** 7:05 
+*** 37 7:05 7:42
+*** 35 8:24 8:59
+
+**     wednesday May 21 : 56 minutes
+*** 26 22:54 23:20
+*** 30 23:24 23:54
+
+
+**      thursday May 22 :
+*** 25 11:24 11:49
+*** 11:53 

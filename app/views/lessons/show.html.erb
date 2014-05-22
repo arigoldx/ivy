@@ -7,31 +7,35 @@
   <%= link_to 'next', lesson_path(@lesson.next) if @lesson.next %>
 </h2>
 
-<!-- taking attendance -->
-<br><br>
-<% if false %>
-<b><%= link_to_function "take attendance", "Element.toggle('take_attendance')" %></b>
-<% end %>
-<div id="take_attendance">
+<div class="ivy-module">
+  <% if false %>
+    <b>
+	  <%= link_to_function "take attendance",
+		  "Element.toggle('take_attendance')" %>
+	</b>
+  <% end %>
+
+  <h2>attendance</h2>
+
   <%= form_for Attendance.new, url: attendances_path do |f| %>
     <%= f.hidden_field :course_id, :value => @course.id %>
 	<%= f.hidden_field :lesson_id, :value => @lesson.id %>
 	<%= f.collection_select 'attendance_type_id',
-		                    @attendance_types, :id, :name %>
+		@attendance_types, :id, :name  %><br><br>
     <%= select_tag "students", options_from_collection_for_select(@course.students,
-		'id', 'name_first_last'), multiple: true %>
-	<%= f.submit %>
+		'id', 'name_first_last'), multiple: true %><br><br>
+	<%= f.submit "record attendance" %>
   <% end %>
+	
+  <br>
 
-
-</div><br>
-
-<!-- attendances listing -->
-<% if !@lesson.attendances.empty? %>
-  <% if false %>
-    <b><%= link_to_function "attendance listing", "Element.toggle('attendance_listing')" %></b><br>
-  <% end %>
-  <div id="attendance_listing">
+  <% if !@lesson.attendances.empty? %>
+    <% if false %>
+      <b>
+		<%= link_to_function "attendance listing",
+			"Element.toggle('attendance_listing')" %>
+	  </b>
+	<% end %>
 	<% for attendance in @lesson.attendances.order("date DESC") %>
 	  <%= link_to 'edit', edit_attendance_path(attendance) %>
 	  <%= link_to 'delete', attendance_path(attendance), :confirm => 'Are you sure?', :method => :delete %> | 
@@ -39,5 +43,5 @@
 	  <%= AttendanceType.find(attendance.attendance_type_id).name %> on
 	  <%=h attendance.created_at.to_s(:day_month_date).downcase %><br>
 	<% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>
