@@ -10,4 +10,4 @@ Ivy also collects data and therefore can be used for analysis and
 curricular development.
 
 Please use the issues page to report anything that comes to mind,
-macro to micro, it's all valuable:(http://github.com/arigoldx/ivy/issues)[http://github.com/arigoldx/ivy/issues].
+macro to micro, it's all valuable: http://github.com/arigoldx/ivy/issues.
