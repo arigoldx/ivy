@@ -5,17 +5,13 @@
 |__| \_/  / ____|
           \/     
 * meta
-i'm kinda using the pomodoro technique here.
+i'm ari gold.
 
-i'm not just doing 25 minutes though, i'm going to try different
-times. same with breaks.
+this is my workflow file. it's an outline mode file for emacs which
+is pretty simple, the more asterisks the deeper the nexting.
 
-sometimes i'm going to use a stopwatch and not a timer. to work hard
-without distractions and see how far i can go. another reason to use a
-stopwatch would be if there were known distractions and i just wanted
-to get some work done. for example, right now anni's feeding mira and
-then we're all, with ema, going to go to noisette. i haven't a clue
-how much time i can do.
+i'm kinda using the pomodoro technique here. i'm not just doing 25
+minutes though, i'm going to try different times. same with breaks.
 
 * next up
 
@@ -286,7 +282,12 @@ called up to help with mira
 *** 30 23:24 23:54
 
 
-**      thursday May 22 :
+**      thursday May 22 : 126 minutes
 *** 25 11:24 11:49
 *** 25 11:53 12:18
-*** 3:42 
+*** 28 3:56 4:24
+*** 25 4:40 5:05
+*** 23 5:15 5:38
+
+**        friday May 23 : (+
+*** 11:30
