@@ -12,6 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//
+//= require underscore.min
+//= require backbone.min
+//
+//= require ivy
+//
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
